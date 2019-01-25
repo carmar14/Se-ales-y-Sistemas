@@ -1,0 +1,100 @@
+<deployment-project plugin="plugin.apptool" plugin-version="1.0">
+  <configuration build-checksum="2193219424" file="D:\Curso Señales y Sistemas\Codigos matlab\Sintetizador de voz\Vowel_Synthesis_GUI25.prj" location="D:\Curso Señales y Sistemas\Codigos matlab\Sintetizador de voz" name="Vowel_Synthesis_GUI25" target="target.mlapps" target-name="Package App">
+    <param.appname>Vowel_Synthesis_GUI25</param.appname>
+    <param.authnamewatermark />
+    <param.email />
+    <param.company />
+    <param.icon>${PROJECT_ROOT}\Vowel_Synthesis_GUI25_resources\icon_24.png</param.icon>
+    <param.icons>
+      <file>${PROJECT_ROOT}\Vowel_Synthesis_GUI25_resources\icon_48.png</file>
+      <file>${PROJECT_ROOT}\Vowel_Synthesis_GUI25_resources\icon_24.png</file>
+      <file>${PROJECT_ROOT}\Vowel_Synthesis_GUI25_resources\icon_16.png</file>
+    </param.icons>
+    <param.summary>Synthesizes a vowel sound with a pitch frequency that linearly varies from a user-specified one</param.summary>
+    <param.description>Speech processing designates a team consisting of Prof. Lawrence Rabiner (Rutgers University and University of California, Santa Barbara), Prof. Ronald Schafer (Stanford University), Kirty Vedula and Siva Yedithi (Rutgers University). This exercise is one of a set of speech processing exercises that are intended to supplement the teaching material in the textbook “Theory and Applications of Digital Speech Processing” by L R Rabiner and R W Schafer. 
+This exercise synthesizes a vowel sound with a pitch frequency that linearly varies from a user-specified initial pitch frequency to a user-specified final pitch frequency. The formant bandwidths and center frequencies for each of 10 vowels are specified in the data file vowels_fmts_bw.mat along with the set of two-character ARPABet vowel names. Only three formant frequencies are specified for each vowel; it is assumed that the fourth resonance frequency is fixed at 4000 Hz for each vowel sound. The formant bandwidths for the first four formants are the same for each of the ten vowels and are set at the values 50, 80, 100, 150 Hz for the four bandwidths. The synthesized vowel is played out to verify the correct operation of the code.</param.description>
+    <param.screenshot>${PROJECT_ROOT}\Vowel_Synthesis.JPG</param.screenshot>
+    <param.version>1.0</param.version>
+    <param.products.name>
+      <item>MATLAB</item>
+    </param.products.name>
+    <param.products.id>
+      <item>1</item>
+    </param.products.id>
+    <param.products.version>
+      <item>9.2</item>
+    </param.products.version>
+    <param.platforms />
+    <param.output>D:\Curso Señales y Sistemas\Codigos matlab\Sintetizador de voz</param.output>
+    <param.guid>c7cfcb09-4081-4547-930a-b1e10ed7d374</param.guid>
+    <unset>
+      <param.authnamewatermark />
+      <param.email />
+      <param.company />
+      <param.version />
+      <param.platforms />
+      <param.output />
+    </unset>
+    <fileset.main>
+      <file>${PROJECT_ROOT}\Vowel_Synthesis_GUI25.m</file>
+    </fileset.main>
+    <fileset.depfun>
+      <file>${PROJECT_ROOT}\Callbacks_Vowel_Synthesis_GUI25.m</file>
+    </fileset.depfun>
+    <fileset.resources>
+      <file>${PROJECT_ROOT}\5.11 Vowel synthesis.pdf</file>
+      <file>${PROJECT_ROOT}\Read_Me.txt</file>
+      <file>${PROJECT_ROOT}\Vowel_Synthesis.mat</file>
+      <file>${PROJECT_ROOT}\vowels_fmts_bw.mat</file>
+    </fileset.resources>
+    <fileset.package />
+    <build-deliverables>
+      <file location="D:\Curso Señales y Sistemas\Codigos matlab" name="Sintetizador de voz" optional="false">D:\Curso Señales y Sistemas\Codigos matlab\Sintetizador de voz</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>C:\Program Files\MATLAB\R2017a</root>
+      <toolboxes>
+        <toolbox name="fixedpoint" />
+        <toolbox name="matlabcoder" />
+        <toolbox name="matlabhdlcoder" />
+        <toolbox name="embeddedcoder" />
+      </toolboxes>
+      <toolbox>
+        <fixedpoint>
+          <enabled>true</enabled>
+        </fixedpoint>
+      </toolbox>
+      <toolbox>
+        <matlabcoder>
+          <enabled>true</enabled>
+        </matlabcoder>
+      </toolbox>
+      <toolbox>
+        <matlabhdlcoder>
+          <enabled>true</enabled>
+        </matlabhdlcoder>
+      </toolbox>
+      <toolbox>
+        <embeddedcoder>
+          <enabled>true</enabled>
+        </embeddedcoder>
+      </toolbox>
+    </matlab>
+    <platform>
+      <unix>false</unix>
+      <mac>false</mac>
+      <windows>true</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>6.2</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>win64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>

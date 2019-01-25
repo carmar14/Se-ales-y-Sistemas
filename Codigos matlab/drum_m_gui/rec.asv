@@ -1,0 +1,25 @@
+function rec(yc)
+global rec_h recs Fs
+h=rec_h(yc);
+s=[];
+if get(h,'value')
+
+    T0=0.1; % piece of record length
+
+    r = audiorecorder(Fs, 16, 1);
+    lc=1;
+    while get(h,'value')
+        recordblocking(r,T0); % record next data
+        s00 = getaudiodata(r); % get data
+        s=[s;s00];
+        gh=get(h,'value')
+        disp(['lc=' num2str(lc) ' gh=' num2str(lc)]);
+        lc=lc+1;
+    end
+    s=s-mean(s);
+    recs{yc}=s';
+end
+
+
+
+
