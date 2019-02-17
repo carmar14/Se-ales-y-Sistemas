@@ -28,10 +28,10 @@ while tiempo+0.001<=5:
 plt.figure()
 plt.subplot(3,1,1)
 plt.plot(t,x)
-plt.xlim(-5,5)
-plt.ylim(-0.5,1.5)
+plt.xlim(-5,5)  #Poner limites en el eje horizontal
+plt.ylim(-0.5,1.5) #Poner limites en el eje vertical
 #plt.xlabel("Tiempo (s)", fontsize = 10)
-plt.ylabel("Amplitud", fontsize = 10)
+plt.ylabel("Amplitud", fontsize = 10) #Poner etiqueta en el eje vertical
 plt.title("Senal escalon original", fontsize = 10)
 
 #Desplazamiento

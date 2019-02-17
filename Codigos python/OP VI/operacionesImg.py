@@ -1,21 +1,23 @@
+#Librerias que se requieren
+
 import numpy as np
 from matplotlib import pyplot as plt
 import matplotlib.image as mpimg
 from skimage.transform import resize
 
-img=mpimg.imread('torre.jpg')
+img=mpimg.imread('torre.jpg') #Leo la imagen
 
 [m,n,o]=img.shape  #obtengo las dimensiones de la imagen
-print(img.shape)
+#print(img.shape)
+
 #traslacion
 y=50
 x=10
-imgD= np.zeros((m+x, n+y, o), np.uint8)
+imgD= np.zeros((m+x, n+y, o), np.uint8) #Matriz de ceros donde se guardara la imagen desplazada
 
 #print(imgD.shape)
 for i in range(0,m):
     for j in range(0,n):
-
         pi=i+x
         pj=j+y
         if pi>0 and pj>0:
@@ -29,7 +31,7 @@ for i in range(0,m):
         imgR[i][cj][:]=img[i,j+1,:]
 
 #Escalamiento
-imgE=resize(img,(3*m,3*n))
+imgE=resize(img,(3*m,3*n))  #Como se haria sin usar el comando resize??
 
 plt.figure()
 plt.imshow(img),plt.title('Original')
