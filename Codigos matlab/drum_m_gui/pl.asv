@@ -1,0 +1,49 @@
+function pl
+global M recs h_np h_tp ns
+
+rp=num2str(get(h_np,'string')); % number of loops
+tp=num2str(get(h_tp,'string')); % tempo
+
+bpms=tp/60;
+
+T1=1/bpms;
+T1i=round(T1*Fs);
+
+T4=1/bpms/4;
+T4i=round(T4*Fs);
+
+snsL=zeros(ns,1); % sounds lenght
+for yc=1:ns
+    snsL()
+
+LL0=rp*4*T4i;
+LD=length(D);
+LL=LL0+LD+1;
+dd=zeros(LL,1);
+lc=1;
+for ind=1:T4i:LL0
+    lc0=mod((lc-1),16)+1;
+    M0=M(:,lc0);
+    i1=1+(lc-1)*T4i;
+    i2=i1+LD-1;
+    if M0(1)
+        dd(i1:i2)=dd(i1:i2)+D*lv(1);
+    end
+    if M0(2)
+        dd(i1:i2)=dd(i1:i2)+SH*lv(2);
+    end
+    if M0(3)
+        dd(i1:i2)=dd(i1:i2)+C*lv(3);
+    end
+    if M0(4)
+        if M0(4)==1
+            dd(i1:i2)=dd(i1:i2)+U*lv(4);
+        else
+            U2r=resample(U2,18,20)*lv(4);
+            dd(i1:i2)=dd(i1:i2)+U2r(1:LD);
+        end
+    end
+    lc=lc+1;
+end
+soundsc(dd,Fs);
+
