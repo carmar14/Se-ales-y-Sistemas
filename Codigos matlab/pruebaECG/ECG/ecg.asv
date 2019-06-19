@@ -27,11 +27,10 @@ title('Señal ECG con ruido')
 b=[0.0031,-0.0096,0.0136,-0.0065,-0.0065,0.0136,-0.0096,0.0031];
 %Coef. del denominador
 a=[1 -5.7911, 14.8576, -21.8117, 19.7466, -11.0104,3.4987, -0.4887];
-%Señal filtrada por filter
+
 ecgf=filter(b,a,ecgr);
 %Vector que guardará los resultados de la solucion de la ecuacion
 ecgf2=zeros(1,length(ecgr));
-%Coef. del denominador exceptuando el primero
 a=[-5.7911, 14.8576, -21.8117, 19.7466, -11.0104,3.4987, -0.4887];
 %Vector que guardará el valor de la entrada y sus valores pasados
 x=zeros(1,length(b));
@@ -95,16 +94,13 @@ legend('ECG filtrada sol. la ecuación','ECG filtrada comando filter')
 
 
 %%Filtro hamming (Filtro tipo FIR)
-%Coef. del numerador
 b=[0.0002,0.0006,0.0010,0.0012,0.0010,0.0005,-0.0005,-0.0018,-0.0032,-0.0040,-0.0037,-0.0020,0.0012,0.0053,0.0091,0.0113,0.0106,0.0060,-0.0021,-0.0123,-0.0222,-0.0285,-0.0278,-0.0176,0.0028,0.0322,0.0674,0.1034,0.1346,0.1557,0.1632,0.1557,0.1346,0.1034,0.0674,0.0322,0.0028,-0.0176,-0.0278,-0.0285,-0.0222,-0.0123,-0.0021,0.0060,0.0106,0.0113,0.0091,0.0053,0.0012,-0.0020,-0.0037,-0.0040,-0.0032,-0.0018,-0.0005,0.0005,0.0010,0.0012,0.0010,0.0006,0.0002];
-%Coef. del denominador
 a=zeros(1,length(b));
 a(1)=1;
-%Señal filtrada por filter
+
 ecgf4=filter(b,a,ecgr);
 
-%Vector que guardará los resultados de la solucion de la ecuacion, señal
-%filtrada
+%Vector que guardará los resultados de la solucion de la ecuacion
 ecgf3=zeros(1,length(ecgr));
 %Vector para guardar la entrada y sus valores pasados
 x=zeros(1,length(b));
@@ -122,7 +118,8 @@ for i=1:length(ecgr)
     
     %Calcular salida
     ecgf3(i)=b*x';
-          
+       
+     
     
 end
 %Graficas para comparar el resultados usando el comando filter (ecgf4) y la

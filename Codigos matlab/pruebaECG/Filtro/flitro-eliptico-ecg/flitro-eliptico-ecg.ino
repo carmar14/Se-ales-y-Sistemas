@@ -1,6 +1,6 @@
 #include <FreeRTOS_ARM.h>
-float a[8]={0.0031,-0.0096,0.0136,-0.0065,-0.0065,0.0136,-0.0096,0.0031};
-float b[7]={-5.7911, 14.8576, -21.8117, 19.7466, -11.0104,3.4987, -0.4887};
+float b[8]={0.0031,-0.0096,0.0136,-0.0065,-0.0065,0.0136,-0.0096,0.0031};
+float a[7]={-5.7911, 14.8576, -21.8117, 19.7466, -11.0104,3.4987, -0.4887};
 float output = 0;
 float output_x = 0;
 float output_y = 0;
@@ -27,30 +27,31 @@ portTickType xLastWakeTime;
 xLastWakeTime = xTaskGetTickCount();
 
   while (1) {
-  
+    //Lectura de la señal a filtrar 
     int sensorValue=analogRead(A0);
-    
+    //Actualizar valores pasados de la entrada
     for(int i=2;i<9;i++){    //for(int i=1;i<9;i++){   
       x[9-i]=x[8-i];
     }
     
-    
+    //Valor actual de la entrada
     x[0]=sensorValue;
     
-  
-    for (int k = 0; k < 8; k++)   output_x=a[k]*x[k] + output_x;
+    //Solucion de la ecuacion en diferencias
+    for (int k = 0; k < 8; k++)   output_x=b[k]*x[k] + output_x;
 
-    for (int k = 0; k < 7; k++)   output_y=b[k]*y[k] + output_y;
+    for (int k = 0; k < 7; k++)   output_y=a[k]*y[k] + output_y;
 
+    
     output = output_x - output_y;
-
+    //Actualizar los valores pasados y actual de la salida
      for(int i=2;i<8;i++){    //for(int i=1;i<8;i++){ 
      y[8-i]=y[7-i];
     }
 
     y[0]=output;
     
-        
+    //Se envia el dato de salida por una salida analogica    
     analogWrite(DAC0,output);
     output_x = 0; output_y = 0;
 
@@ -61,5 +62,3 @@ xLastWakeTime = xTaskGetTickCount();
   }
   
 void loop() {}
-
-

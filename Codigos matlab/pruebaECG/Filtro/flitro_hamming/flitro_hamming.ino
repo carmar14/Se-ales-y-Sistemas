@@ -16,11 +16,14 @@ Serial.println(x[61]);
 void loop() {
 
   // put your main code here, to run repeatedly:
+  //Actualizar valores pasados de la entrada
   for(int i=2;i<62;i++){
   x[62-i]=x[61-i];
   }
   int a=analogRead(A0);
+  //Valor actual de la entrada
   x[0]=a;
+  //Solucion de la ecuacion en diferencia
 for (int k = 0; k < 61; k++) {
   
   output=coef[k]*x[k]+output;
@@ -33,7 +36,7 @@ for (int k = 0; k < 61; k++) {
   //x[0]=input[m];
   
   
-
+//Se envia el dato de salida por una salida analogica  
 analogWrite(DAC0,output);
 output=0;
 
